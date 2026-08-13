@@ -80,7 +80,7 @@ export const generateResumePdf = async ({ interviewReportId }) => {
   }
 };
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["http://localhost:5173", process.env.FRONTEND_URL];
 
 if (process.env.FRONTEND_URL) {
   allowedOrigins.push(process.env.FRONTEND_URL);
