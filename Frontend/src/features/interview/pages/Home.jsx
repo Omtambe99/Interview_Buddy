@@ -14,6 +14,12 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
+    const shouldSignOut = window.confirm("Are you sure you want to sign out?");
+
+    if (!shouldSignOut) {
+      return;
+    }
+
     const ok = await handleLogout();
 
     if (ok) {
