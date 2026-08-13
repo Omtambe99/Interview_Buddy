@@ -8,14 +8,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL1,
-  process.env.FRONTEND_URL2,
-  process.env.FRONTEND_URL3,
-];
-
-// if (process.env.FRONTEND_URL) {
-//   allowedOrigins.push(process.env.FRONTEND_URL);
-// }
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
 
 app.use(
   cors({
@@ -32,7 +27,7 @@ app.use(
   }),
 );
 
-app.options("*", cors());
+app.options(/^(.*)$/, cors());
 
 const authRouter = require("./routes/auth.routes");
 const interviewRouter = require("./routes/interview.routes");
