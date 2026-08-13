@@ -79,3 +79,35 @@ export const generateResumePdf = async ({ interviewReportId }) => {
     throw err.response?.data || err;
   }
 };
+
+const allowedOrigins = ["http://localhost:5173"];
+
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  }),
+);
+
+res.cookie("token", token, {
+  httpOnly: true,
+  sameSite: "None",
+  secure: true,
+  maxAge: 24 * 60 * 60 * 1000,
+});
+
+res.clearCookie("token", {
+  httpOnly: true,
+  sameSite: "None",
+  secure: true,
+});

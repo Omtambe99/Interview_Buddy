@@ -7,11 +7,15 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  process.env.FRONTEND_URL1,
+  process.env.FRONTEND_URL2,
+  process.env.FRONTEND_URL3,
+];
 
-if (process.env.FRONTEND_URL) {
-  allowedOrigins.push(process.env.FRONTEND_URL);
-}
+// if (process.env.FRONTEND_URL) {
+//   allowedOrigins.push(process.env.FRONTEND_URL);
+// }
 
 app.use(
   cors({
@@ -23,8 +27,12 @@ app.use(
       }
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+
+app.options("*", cors());
 
 const authRouter = require("./routes/auth.routes");
 const interviewRouter = require("./routes/interview.routes");

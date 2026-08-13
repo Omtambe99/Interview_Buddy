@@ -1,9 +1,11 @@
 import { useContext, useEffect } from "react";
+import { useLocation } from "react-router";
 import { AuthContext } from "../auth.context";
 import { login, register, logout, getMe } from "../services/auth.api";
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
+  const location = useLocation();
   const { user, setUser, loading, setLoading } = context;
 
   const handleLogin = async ({ email, password }) => {
@@ -48,6 +50,24 @@ export const useAuth = () => {
   };
 
   useEffect(() => {
+    const publicPaths = ["/login", "/register"];
+
+    if (publicPaths.includes(location.pathname)) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
+    const hasAuthCookie = document.cookie
+      .split(";")
+      .some((cookie) => cookie.trim().startsWith("token="));
+
+    if (!hasAuthCookie) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
     const getAndSetUser = async () => {
       try {
         const data = await getMe();
@@ -60,7 +80,7 @@ export const useAuth = () => {
     };
 
     getAndSetUser();
-  }, []);
+  }, [location.pathname]);
 
   return { user, loading, handleRegister, handleLogin, handleLogout };
 };
