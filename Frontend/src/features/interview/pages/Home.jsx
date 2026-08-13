@@ -1,15 +1,25 @@
 import React, { useState, useRef } from "react";
 import "../style/home.scss";
 import { useInterview } from "../hooks/useInterview.js";
+import { useAuth } from "../../auth/hooks/useAuth";
 import { useNavigate } from "react-router";
 
 const Home = () => {
   const { loading, generateReport, reports } = useInterview();
+  const { user, handleLogout } = useAuth();
   const [jobDescription, setJobDescription] = useState("");
   const [selfDescription, setSelfDescription] = useState("");
   const resumeInputRef = useRef();
 
   const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    const ok = await handleLogout();
+
+    if (ok) {
+      navigate("/login");
+    }
+  };
 
   const handleGenerateReport = async () => {
     const resumeFile = resumeInputRef.current.files[0];
@@ -36,13 +46,37 @@ const Home = () => {
     <div className="home-page">
       {/* Page Header */}
       <header className="page-header">
-        <h1>
-          Create Your Custom <span className="highlight">Interview Plan</span>
-        </h1>
-        <p>
-          Let our AI analyze the job requirements and your unique profile to
-          build a winning strategy.
-        </p>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "1rem",
+            width: "100%",
+            maxWidth: "900px",
+          }}
+        >
+          <div style={{ flex: 1, textAlign: "center" }}>
+            <h1>
+              Create Your Custom{" "}
+              <span className="highlight">Interview Plan</span>
+            </h1>
+            <p>
+              Let our AI analyze the job requirements and your unique profile to
+              build a winning strategy.
+            </p>
+          </div>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          >
+            <span style={{ color: "#c9d1d9", fontSize: "0.85rem" }}>
+              {user?.username || "User"}
+            </span>
+            <button className="button primary-button" onClick={handleSignOut}>
+              Sign out
+            </button>
+          </div>
+        </div>
       </header>
 
       {/* Main Card */}
