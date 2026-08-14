@@ -15,28 +15,28 @@ JWT-based authentication with encrypted credentials and session blacklisting.
 ### 🎛️ Strategy Dashboard
 Generate a personalized interview strategy by providing a target job description and uploading a resume.
 <div align="center">
-  <img src="./Demo/Dashboard_page.png" width="600" alt="Dashboard Page" />
+  <img src="./Demo/Dashboard_page.png" width="700" alt="Dashboard Page" />
 </div>
 
 ### 💻 Technical & Behavioral Assessments
 Receive highly specific, role-tailored technical and behavioral questions complete with interviewer intentions and model STAR-method answers.
 <div align="center">
-  <img src="./Demo/Technical_question_page.png" width="600" alt="Technical Questions" />
-  <img src="./Demo/Behaviourial_question_page.png" width="600" alt="Behavioral Questions" />
+  <img src="./Demo/Technical_question_page.png" width="700" alt="Technical Questions" />
+  <img src="./Demo/Behaviourial_question_page.png" width="700" alt="Behavioral Questions" />
 </div>
 
 ### 🗺️ Preparation Roadmap
 Get a structured, day-by-day preparation plan to close identified skill gaps before the interview.
 <div align="center">
-  <img src="./Demo/RoadMap_page.png" width="600" alt="Road Map" />
+  <img src="./Demo/RoadMap_page.png" width="700" alt="Road Map" />
 </div>
 
 ### 📄 AI-Generated ATS-Friendly Resume
 Automatically generate a highly optimized, dynamically rendered PDF resume tailored specifically to the target job description.
 <div align="center">
-  <img src="./Demo/Resume_generated_page1.png" width="250" alt="Resume Page 1" />
+  <img src="./Demo/Resume_generated_page1.png" width="300" alt="Resume Page 1" />
   <br><br>
-  <img src="./Demo/Resume_generated_page2.png" width="250" alt="Resume Page 2" />
+  <img src="./Demo/Resume_generated_page2.png" width="300" alt="Resume Page 2" />
 </div>
 
 
