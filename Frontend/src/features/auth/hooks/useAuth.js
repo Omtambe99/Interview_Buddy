@@ -58,12 +58,9 @@ export const useAuth = () => {
       return;
     }
 
-    const hasAuthCookie = document.cookie
-      .split(";")
-      .some((cookie) => cookie.trim().startsWith("token="));
-
-    if (!hasAuthCookie) {
-      setUser(null);
+    // If a user is already in state (e.g. just logged in),
+    // skip re-validation to avoid wiping state during navigation.
+    if (user) {
       setLoading(false);
       return;
     }
