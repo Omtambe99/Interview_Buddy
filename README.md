@@ -22,15 +22,17 @@ Get a structured, day-by-day preparation plan to close identified skill gaps bef
 ### 📄 AI-Generated ATS-Friendly Resume
 Automatically generate a highly optimized, dynamically rendered PDF resume tailored specifically to the target job description.
 <div align="center">
-  <img src="./Demo/Resume_generated_page1.png" width="45%" alt="Resume Page 1" />
-  <img src="./Demo/Resume_generated_page2.png" width="45%" alt="Resume Page 2" />
+  <img src="./Demo/Resume_generated_page1.png" width="400" alt="Resume Page 1" />
+  <br><br>
+  <img src="./Demo/Resume_generated_page2.png" width="400" alt="Resume Page 2" />
 </div>
 
 ### 🔐 Secure Authentication
 JWT-based authentication with encrypted credentials and session blacklisting.
 <div align="center">
-  <img src="./Demo/login_page.png" width="45%" alt="Login Page" />
-  <img src="./Demo/Register_page.png" width="45%" alt="Register Page" />
+  <img src="./Demo/login_page.png" width="400" alt="Login Page" />
+  <br><br>
+  <img src="./Demo/Register_page.png" width="400" alt="Register Page" />
 </div>
 
 ---
