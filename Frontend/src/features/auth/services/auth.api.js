@@ -51,7 +51,7 @@ export async function getMe() {
 
     return response.data;
   } catch (err) {
-    console.error(err);
+    // 401 from get-me is expected when user is not logged in — not an error
     throw err.response?.data || err;
   }
 }
